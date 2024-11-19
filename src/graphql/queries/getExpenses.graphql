@@ -1,0 +1,12 @@
+query GetExpenses {
+  expenses {
+    id
+    amount
+    description
+    date
+    category {
+      id
+      name
+    }
+  }
+}

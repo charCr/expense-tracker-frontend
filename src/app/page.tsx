@@ -3,14 +3,13 @@
 'use client';
 
 import React from 'react';
-import ExpensesList from '../components/expenses/expensesList';
+import '../styles/globals.css';
 
 const HomePage: React.FC = () => {
   return (
-    <div>
-      <h1>Welcome to Expense Tracker</h1>
-      <ExpensesList />
-    </div>
+      <div className="container mx-auto">
+        <h1>Welcome to Expense Tracker TEST</h1>
+      </div>
   );
 };
 
