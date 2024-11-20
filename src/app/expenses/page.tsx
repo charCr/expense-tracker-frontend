@@ -1,9 +1,8 @@
-// pages.tsx example
-
 import React from 'react';
+import ExpensesList from '@/components/expenses/expensesList';
 
 const AddExpensePage: React.FC = () => {
-  return <div>Expenses</div>;
+  return <ExpensesList />;
 };
 
 export default AddExpensePage;

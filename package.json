@@ -6,12 +6,15 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint" 
-   },
+    "lint": "next lint",
+    "codegen": "graphql-codegen --config codegen.ts",
+    "codegen:watch": "graphql-codegen --watch --config codegen.ts"
+  },
   "dependencies": {
     "@apollo/client": "^3.11.9",
     "@headlessui/react": "^2.2.0",
     "@heroicons/react": "^2.1.5",
+    "@parcel/watcher": "^2.5.0",
     "@tanstack/react-table": "^8.20.5",
     "graphql": "^16.9.0",
     "next": "15.0.3",
@@ -19,6 +22,11 @@
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
+    "@graphql-codegen/cli": "5.0.3",
+    "@graphql-codegen/client-preset": "4.5.0",
+    "@graphql-codegen/typescript": "^4.1.1",
+    "@graphql-codegen/typescript-operations": "^4.3.1",
+    "@graphql-codegen/typescript-react-apollo": "^4.3.2",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",

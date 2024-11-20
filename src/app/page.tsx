@@ -8,7 +8,7 @@ import '../styles/globals.css';
 const HomePage: React.FC = () => {
   return (
       <div className="container mx-auto">
-        <h1>Welcome to Expense Tracker TEST</h1>
+        <h1>Welcome to Expense Tracker</h1>
       </div>
   );
 };
