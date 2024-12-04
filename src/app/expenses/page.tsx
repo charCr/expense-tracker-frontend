@@ -1,8 +1,8 @@
 import React from 'react';
-import ExpensesList from '@/components/expenses/expensesList';
+import ExpensesTable from '@/components/expenses/expensesTable';
 
 const AddExpensePage: React.FC = () => {
-  return <ExpensesList />;
+  return <ExpensesTable />;
 };
 
 export default AddExpensePage;

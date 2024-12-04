@@ -1,0 +1,34 @@
+mutation CreateExpense(
+  $userId: Int!
+  $categoryId: Int!
+  $amount: Float!
+  $description: String
+  $date: DateTime
+) {
+  createExpense(
+    userId: $userId
+    categoryId: $categoryId
+    amount: $amount
+    description: $description
+    date: $date
+  ) {
+    id
+    amount
+    description
+    date
+    categoryId
+    userId
+    createdAt
+    updatedAt
+    user {
+      id
+      email
+      # Add other user fields if needed
+    }
+    category {
+      id
+      name
+      # Add other category fields if needed
+    }
+  }
+}
