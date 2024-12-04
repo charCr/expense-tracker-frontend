@@ -1,14 +1,20 @@
 // components/Header/Header.tsx
 
-"use client";
+'use client';
 
-import { Fragment } from "react";
-import { Menu, MenuButton, MenuItem, MenuItems, Transition } from "@headlessui/react";
-import { ChevronDownIcon } from "@heroicons/react/20/solid";
-import Link from "next/link";
+import { Fragment } from 'react';
+import {
+  Menu,
+  MenuButton,
+  MenuItem,
+  MenuItems,
+  Transition,
+} from '@headlessui/react';
+import { ChevronDownIcon } from '@heroicons/react/20/solid';
+import Link from 'next/link';
 
 function classNames(...classes: string[]) {
-  return classes.filter(Boolean).join(" ");
+  return classes.filter(Boolean).join(' ');
 }
 
 const Header: React.FC = () => {
@@ -21,7 +27,7 @@ const Header: React.FC = () => {
               <Link
                 id="logo"
                 href="/"
-                className="text-xl font-bold text-green-700"
+                className="text-xl font-bold text-sky-600"
               >
                 ExpenseTracker
               </Link>
@@ -67,7 +73,7 @@ const Header: React.FC = () => {
           <div className="flex items-center">
             <Menu as="div" className="relative inline-block text-left">
               <div>
-                <MenuButton className="inline-flex justify-center w-full rounded-md border border-green-700 shadow-sm px-4 py-2 bg-gray-800 text-sm font-medium text-white  focus:outline-none">
+                <MenuButton className="inline-flex justify-center w-full rounded-md border border-sky-700 shadow-sm px-4 py-2 bg-gray-800 text-sm font-medium text-white  focus:outline-none">
                   Account
                   <ChevronDownIcon
                     className="-mr-1 ml-2 h-5 w-5"
@@ -92,13 +98,11 @@ const Header: React.FC = () => {
                         <Link
                           href="/dashboard"
                           className={classNames(
-                            active
-                              ? "bg-gray-100 text-gray-900"
-                              : "text-white",
-                            "block px-4 py-2 text-sm"
+                            active ? 'bg-gray-100 text-gray-900' : 'text-white',
+                            'block px-4 py-2 text-sm'
                           )}
                         >
-                            Profile
+                          Profile
                         </Link>
                       )}
                     </MenuItem>
@@ -107,10 +111,8 @@ const Header: React.FC = () => {
                         <Link
                           href="/dashboard"
                           className={classNames(
-                            active
-                              ? "bg-gray-100 text-gray-900"
-                              : "text-white",
-                            "block px-4 py-2 text-sm"
+                            active ? 'bg-gray-100 text-gray-900' : 'text-white',
+                            'block px-4 py-2 text-sm'
                           )}
                         >
                           Settings
@@ -122,10 +124,8 @@ const Header: React.FC = () => {
                         <Link
                           href="/dashboard"
                           className={classNames(
-                            active
-                              ? "bg-gray-100 text-gray-900"
-                              : "text-white",
-                            "block px-4 py-2 text-sm"
+                            active ? 'bg-gray-100 text-gray-900' : 'text-white',
+                            'block px-4 py-2 text-sm'
                           )}
                         >
                           Sign out

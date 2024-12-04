@@ -11,6 +11,7 @@ import {
   useReactTable,
   flexRender,
 } from '@tanstack/react-table';
+import AddExpenseButton from './AddExpenseButton';
 
 const ExpensesTable: React.FC = () => {
   const { data, loading, error } = useGetExpensesQuery();
@@ -34,15 +35,15 @@ const ExpensesTable: React.FC = () => {
     }),
     columnHelper.accessor('description', {
       header: 'Description',
-      cell: (info) => info.getValue() ?? 'No Description',
+      cell: info => info.getValue() ?? 'No Description',
     }),
     columnHelper.accessor('amount', {
       header: 'Amount',
-      cell: (info) => `$${info.getValue().toFixed(2)}`,
+      cell: info => `$${info.getValue().toFixed(2)}`,
     }),
     columnHelper.accessor('date', {
       header: 'Date',
-      cell: (info) => new Date(info.getValue()).toLocaleDateString(),
+      cell: info => new Date(info.getValue()).toLocaleDateString(),
     }),
     columnHelper.accessor('category.name', {
       header: 'Category',
@@ -60,50 +61,53 @@ const ExpensesTable: React.FC = () => {
   if (error) return <div>Error: {error.message}</div>;
 
   return (
-<div className="p-4">
-  <h2 className="text-2xl font-bold mb-4">Expenses</h2>
-  <div className="overflow-x-auto">
-    <table className="min-w-full border-collapse border border-gray-300">
-      <thead className="bg-gray-900">
-        {table.getHeaderGroups().map((headerGroup) => (
-          <tr key={headerGroup.id} className="border-b border-gray-300">
-            {headerGroup.headers.map((header) => (
-              <th
-                key={header.id}
-                className="px-4 py-2 text-left font-medium text-white"
-              >
-                {header.isPlaceholder
-                  ? null
-                  : flexRender(
-                      header.column.columnDef.header,
-                      header.getContext()
-                    )}
-              </th>
+    <div className="p-4">
+      <div className="flex items-center justify-between">
+        <h2 className="text-2xl font-bold mb-4 text-black">Expense History</h2>
+        {/* TODO: Replace with actual user ID */}
+        <AddExpenseButton userId="1" />
+      </div>
+      <div className="overflow-x-auto">
+        <table className="min-w-full border-collapse border border-gray-300">
+          <thead className="bg-gray-500">
+            {table.getHeaderGroups().map(headerGroup => (
+              <tr key={headerGroup.id} className="border-b border-gray-300">
+                {headerGroup.headers.map(header => (
+                  <th
+                    key={header.id}
+                    className="px-4 py-2 text-left font-medium text-white"
+                  >
+                    {header.isPlaceholder
+                      ? null
+                      : flexRender(
+                          header.column.columnDef.header,
+                          header.getContext()
+                        )}
+                  </th>
+                ))}
+              </tr>
             ))}
-          </tr>
-        ))}
-      </thead>
-      <tbody>
-        {table.getRowModel().rows.map((row) => (
-          <tr
-            key={row.id}
-            className="bg-black border-b border-gray-200"
-          >
-            {row.getVisibleCells().map((cell) => (
-              <td
-                key={cell.id}
-                className="px-4 py-2 text-gray-600 text-sm whitespace-nowrap"
+          </thead>
+          <tbody>
+            {table.getRowModel().rows.map(row => (
+              <tr
+                key={row.id}
+                className="bg-gray-200 border-b border-gray-300 hover:bg-gray-100"
               >
-                {flexRender(cell.column.columnDef.cell, cell.getContext())}
-              </td>
+                {row.getVisibleCells().map(cell => (
+                  <td
+                    key={cell.id}
+                    className="px-4 py-2 text-gray-600 text-sm whitespace-nowrap"
+                  >
+                    {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                  </td>
+                ))}
+              </tr>
             ))}
-          </tr>
-        ))}
-      </tbody>
-    </table>
-  </div>
-</div>
-
+          </tbody>
+        </table>
+      </div>
+    </div>
   );
 };
 
